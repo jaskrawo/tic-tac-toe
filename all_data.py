@@ -4,7 +4,7 @@ import itertools
 
 def board_init():
 
-    ruch_n = []
+    move_number = []
 
     for b,i in enumerate(itertools.product(' XO', repeat=9)):
 
