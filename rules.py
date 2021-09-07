@@ -1,19 +1,19 @@
 import random
 import json
-import wszystkie_dane
-import baza_danych
+import all_data
+import data_base
 
 
 
 
 try:
 
-    with open('zapis_plansz.txt') as json_file:
-        tablica_ruch = json.load(json_file)
+    with open('all_moves.txt') as json_file:
+        move_list = json.load(json_file)
 
 except IOError:
-    ruch_n = wszystkie_dane.board_init()
-    tablica_ruch = baza_danych.board_sort(ruch_n)
+    move_n = all_data.board_init()
+    tablica_ruch = data_base.board_sort(move_n)
 
 
 
@@ -44,31 +44,31 @@ def iswin(board, letter='X'):
 
 
 
-def losowanie(litera, nr, board):
-    mozliwe_ruchy=[]
-    ruch = tablica_ruch[litera][nr]
+def draw(letter, number, board):
+    possible_moves=[]
+    move = list_move[letter][numberr]
     for i in ruch:
 
-        suma=0
+        sum=0
         for z, g in zip(i['board'], board[0]['board']):
 
             if z==g:
                 continue
             else:
                 suma+=1
-        if suma==1:
-            mozliwe_ruchy.append(i)
+        if sum==1:
+            possible_moves.append(i)
         else:
             continue
 
-    return(random.choices(mozliwe_ruchy, weights=[i['value'] for i in mozliwe_ruchy], k = 1))
+    return(random.choices(possible_moves, weights=[i['value'] for i in possible_moves], k = 1))
 
 
 
 
-def zapis():
-    with open('zapis_plansz.txt', 'w') as f:
-        json.dump(tablica_ruch, f)
+def save():
+    with open('all_moves.txt', 'w') as f:
+        json.dump(liset_move, f)
 
 
 
