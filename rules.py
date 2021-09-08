@@ -13,7 +13,7 @@ try:
 
 except IOError:
     move_n = all_data.board_init()
-    tablica_ruch = data_base.board_sort(move_n)
+    move_list = data_base.board_sort(move_n)
 
 
 
@@ -46,16 +46,18 @@ def iswin(board, letter='X'):
 
 def draw(letter, number, board):
     possible_moves=[]
-    move = list_move[letter][numberr]
-    for i in ruch:
+    move = move_list[letter][number]
+
+    for i in move:
 
         sum=0
+
         for z, g in zip(i['board'], board[0]['board']):
 
             if z==g:
                 continue
             else:
-                suma+=1
+                sum += 1
         if sum==1:
             possible_moves.append(i)
         else:
@@ -68,11 +70,4 @@ def draw(letter, number, board):
 
 def save():
     with open('all_moves.txt', 'w') as f:
-        json.dump(liset_move, f)
-
-
-
-
-
-
-
+        json.dump(move_list, f)
