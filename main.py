@@ -3,7 +3,7 @@ import rules
 
 for i in range (1):
 
-    moves_x = []
+    moves_X = []
     moves_O = []
 
     board = [{'number': 100000, 'board': [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], 'value': 100}]
@@ -19,6 +19,7 @@ for i in range (1):
             print(board[0]['board'][:3])
             print(board[0]['board'][3:6])
             print(board[0]['board'][6:])
+            print('')
 
 
 
@@ -50,15 +51,16 @@ for i in range (1):
             print(board[0]['board'][:3])
             print(board[0]['board'][3:6])
             print(board[0]['board'][6:])
+            print('')
 
 
 
-            zestaw_O.append(board)
+            moves_O.append(board)
             move_X = True
             move_O = False
 
             change += 1
-            if (zasady.iswin(board[0]['board'], 'O')):
+            if (rules.iswin(board[0]['board'], 'O')):
 
                 print(board[0]['board'][:3])
                 print(board[0]['board'][3:6])
@@ -84,5 +86,5 @@ for i in range (1):
             break
 
 
-rules.zapis()
+rules.save()
 
