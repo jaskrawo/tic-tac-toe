@@ -1,5 +1,7 @@
 import itertools
 
+#used to create list of all combinations of ' ', X and O. Each combination have its number and value
+#that list will be filtered and sorted in the data_base module
 def board_init():
 
     move_number = []
