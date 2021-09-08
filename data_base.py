@@ -1,10 +1,10 @@
 import all_data
 import json
 
-
+#board_sort module sorts and filters list created with board_init() in the all_data module
 def board_sort(move_n):
 
-
+    #move_list_X and move_list_O are used to sort moves by sign and number, from first to fifth in Xs and fourth in Os.
     move_list_X=[[], [], [], [], []]
     move_list_O=[[], [], [], []]
 
