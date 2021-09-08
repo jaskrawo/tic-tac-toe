@@ -5,7 +5,7 @@ import data_base
 
 
 
-
+#if there is no file 'all_moves.txt' it is is created 
 try:
 
     with open('all_moves.txt') as json_file:
@@ -17,7 +17,7 @@ except IOError:
 
 
 
-
+#iswin function is used to check if Xs or Os have alredy won
 def iswin(board, letter='X'):
 
     if board[0]==letter and board[1]==letter and board[2]==letter:
@@ -43,7 +43,8 @@ def iswin(board, letter='X'):
 
 
 
-
+#draw function is used to draw a move from a list of possible moves
+#the probability of each choice is dependent on previous results
 def draw(letter, number, board):
     possible_moves=[]
     move = move_list[letter][number]
@@ -67,7 +68,18 @@ def draw(letter, number, board):
 
 
 
-
+#saves changes made in the 'all_moves.txt' file
 def save():
     with open('all_moves.txt', 'w') as f:
         json.dump(move_list, f)
+
+#function used to visualize present state of the board
+def draw_board(board):
+    return(
+    '''
+{}
+{}
+{}
+
+    '''.format(board[0]['board'][:3], board[0]['board'][3:6], board[0]['board'][6:])
+    )
