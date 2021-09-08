@@ -1,79 +1,76 @@
-import zasady
+import rules
 
 
 for i in range (1):
 
-    zestaw_X = []
-    zestaw_O = []
+    moves_x = []
+    moves_O = []
 
-    board = [{'numer': 100000, 'board': [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], 'value': 100}]
-    tura_X = True
-    tura_O = False
-    zmiana = 0
+    board = [{'number': 100000, 'board': [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], 'value': 100}]
+    move_X = True
+    move_O = False
+    change = 0
     while True:
-        if tura_X and zmiana <= 4:
+        if move_X and change <= 4:
 
-            board = zasady.losowanie(0, zmiana, board)
-            zestaw_X.append(board)
+            board = rules.draw(0, change, board)
+            moves_X.append(board)
 
             print(board[0]['board'][:3])
             print(board[0]['board'][3:6])
             print(board[0]['board'][6:])
-            print('wygrało kółko')
 
 
 
-            tura_X = False
-            tura_O = True
+            move_X = False
+            move_O = True
 
-            #wygrał X
-            if (zasady.iswin(board[0]['board'], 'X')):
+            if (rules.iswin(board[0]['board'], 'X')):
 
                 print(board[0]['board'][:3])
                 print(board[0]['board'][3:6])
                 print(board[0]['board'][6:])
-                print('wygrał krzyżyk')
+                print('X won!')
 
 
 
 
-                for move in zestaw_X:
+                for move in moves_X:
                     move[0]['value'] += 1
 
-                for move in zestaw_O:
+                for move in moves_O:
                     if move[0]['value'] > 1:
                         move[0]['value'] -= 1
 
                 break
 
-        elif tura_O and zmiana<4:
-            board = zasady.losowanie(1, zmiana, board)
+        elif move_O and change<4:
+            board = rules.draw(1, change, board)
 
             print(board[0]['board'][:3])
             print(board[0]['board'][3:6])
             print(board[0]['board'][6:])
-            print('wygrało kółko')
 
 
 
             zestaw_O.append(board)
-            tura_X = True
-            tura_O = False
+            move_X = True
+            move_O = False
 
-            zmiana += 1
+            change += 1
             if (zasady.iswin(board[0]['board'], 'O')):
 
                 print(board[0]['board'][:3])
                 print(board[0]['board'][3:6])
                 print(board[0]['board'][6:])
-                print('wygrało kółko')
+                print('O won!')
 
 
 
-                for move in zestaw_O:
+                for move in moves_O:
                         move[0]['value'] += 1
 
-                for move in zestaw_X:
+                for move in moves_X:
                     if move[0]['value'] > 1:
                         move[0]['value'] -= 1
 
@@ -81,11 +78,11 @@ for i in range (1):
 
 
         else:
-            print('Remis')
+            print('Draw!')
 
 
             break
 
 
-zasady.zapis()
+rules.zapis()
 
