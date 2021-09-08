@@ -49,7 +49,3 @@ def board_sort(move_n):
 def save(move_list):
     with open('all_moves.txt', 'w') as f:
         json.dump(move_list, f)
-
-
-
-
