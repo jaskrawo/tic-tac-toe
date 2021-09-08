@@ -1,2 +1,2 @@
 # tic-tac-toe
-Simple AI improving its performance by playing with itself
+Simple AI that plays tic-tac-toe with itself. At the beginning it choses moves to play randomly, every possibla move has the same probability of being played. Sequence of moves that leads to a victory get points, thus there will be a higher chance of chosing that moves in the future games. Accordingly moves that ended in a losing state will be chosen less frequently. After about 200 000 games there will be more than 99% of draws - both players will not make single mistake in more than 99% of games.
