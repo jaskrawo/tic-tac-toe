@@ -1,5 +1,3 @@
-
-
 import itertools
 
 def board_init():
@@ -11,12 +9,7 @@ def board_init():
         if b==100000:
             break
         else:
-            ruch_n_nr = {'numer': b, 'board': i, 'value': 100}
-            ruch_n.append(ruch_n_nr)
+            move_n_number = {'number': b, 'board': i, 'value': 100}
+            move_number.append(move_n_number)
 
-    return ruch_n
-
-
-
-
-
+    return move_number
